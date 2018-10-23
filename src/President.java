@@ -52,8 +52,4 @@ public class President {
 		state = s;
 	}
 	
-	public String toString()
-	{
-		
-	}
 }

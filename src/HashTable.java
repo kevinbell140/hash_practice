@@ -4,29 +4,26 @@ import java.io.*;
 
 public abstract class HashTable {
 
-	private DataObj[] table;
-	private DataObj nonObj; 
+	protected DataItem[] table;
+	protected DataItem nonItem; 
 	protected int size;
-	private ArrayList<President> prezArray;
 	
-	public HashTable(ArrayList<President> prezArray, int size)
+	public HashTable(int size)
 	{
 		
-		this.prezArray = prezArray;
 		this.size = size;
-		this.table = new DataObj[size];
-		nonObj = new DataObj(null, -1);   //for deletes
+		this.table = new DataItem[size];
+		nonItem = new DataItem (null, 1);   //for deletes
 	}
 	
 	public abstract void display();
 	
-
-	public abstract int hashFunc(ArrayList<President> prezArray);
+	protected abstract int hashFunc(String name);
 	
-	public abstract void insert(DataObj data);
+	public abstract void insert(President p);
 	
-	public abstract DataObj delete(long key);
+	public abstract DataItem delete(String name);
 	
-	public abstract DataObj find();
+	public abstract DataItem find(String name);
 	
 }

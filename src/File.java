@@ -27,7 +27,6 @@ public class File {
 			fr = new FileReader(f);
 			br = new BufferedReader(fr);
 			getData();
-			printArray();
 
 		}catch (Exception e)
 		{
@@ -78,7 +77,7 @@ public class File {
 	{
 		for (President prez : prezArray)
 		{
-			System.out.println(prez.name);
+			System.out.println(prez.getName());
 		}
 	}	
 	
