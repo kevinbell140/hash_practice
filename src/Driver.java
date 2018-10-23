@@ -16,6 +16,7 @@ public class Driver {
 	private int counter = 1;
 	HashTable table1;
 	HashTable table2;
+	private ArrayList<Update> updates;
 	
 	
 	public Driver(ArrayList<President> p)
@@ -23,6 +24,11 @@ public class Driver {
 		presidents = p;
 		table1 = createTable(37);
 		table2 = createTable(23);
+	}
+	
+	public void getUpdate()
+	{
+		
 	}
 	
 	private void getHeader()

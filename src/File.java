@@ -16,6 +16,7 @@ public class File {
 	private BufferedReader br;
 	private ArrayList<String> data;
 	private ArrayList<President> prezArray;
+	private ArrayList<Update> updates;
 	//private String line;
 	
 	//constructor for file
@@ -23,6 +24,14 @@ public class File {
 	{
 		try 
 		{
+			if(f.contains("Update"))
+			{
+				updates = new ArrayList<Update>();
+				fr = new FileReader(f);
+				br = new BufferedReader(fr);
+				getUpdate();
+				
+			}
 			prezArray = new ArrayList<President>();
 			fr = new FileReader(f);
 			br = new BufferedReader(fr);
@@ -50,13 +59,51 @@ public class File {
 			System.out.println("IO Exception");
 		}
 	}
+	
+	private void getUpdate()
+	{
+		String line;
+		data = new ArrayList<String>();
+		try
+		{
+			while((line = br.readLine()) != null)
+			{
+				data.add(line);
+			}
+			parseUpdate();
+		}catch(IOException e)
+		{
+			System.out.println("IO Exception");
+		}
+	}
 		
 	private void parseData()
 	{
+		
 		for (String s : data) {
 			String[] info = s.split(",");
 			makePresident(info);
 		}
+	}
+	
+	private void parseUpdate()
+	{
+		for (String s: data)
+		{
+			String[] info = s.split(",");
+			makeUpdate(info);
+		}
+	}
+	
+	private void makeUpdate(String[] info)
+	{
+		String type = info[0];
+		String name = info[1];
+		
+		Update update = new Update(type, name);
+		
+		updates.add(update);
+		
 	}
 	
 	private void makePresident(String[] info)
@@ -86,4 +133,9 @@ public class File {
 	{
 		return prezArray;
 	}	
+	
+	public ArrayList<Update> getUpdateArray()
+	{
+		return updates;
+	}
 }
