@@ -1,11 +1,11 @@
 
 public class President {
 
-	int num;
-	String name;
-	int term;
-	String party;
-	String state;
+	private int num;
+	private String name;
+	private int term;
+	private String party;
+	private String state;
 	
 	public President(int n, String na, int t, String p, String s)
 	{
@@ -15,6 +15,7 @@ public class President {
 		party = p;
 		state = s;
 	}
+
 	
 	public int getNum() {
 		return num;
@@ -49,5 +50,10 @@ public class President {
 	}
 	public void setState(String s) {
 		state = s;
+	}
+	
+	public String toString()
+	{
+		
 	}
 }

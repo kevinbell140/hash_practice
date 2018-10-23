@@ -5,6 +5,8 @@
  */
 
 import java.util.*;
+
+
 import java.io.*;
 
 
@@ -25,6 +27,7 @@ public class File {
 			fr = new FileReader(f);
 			br = new BufferedReader(fr);
 			getData();
+			printArray();
 
 		}catch (Exception e)
 		{
